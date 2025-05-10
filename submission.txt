@@ -1,0 +1,135 @@
+# Submission Proyek Akhir: Membangun ETL Pipeline Sederhana
+
+Selamat datang di proyek ETL Pipeline saya! 👋 Berikut adalah panduan komprehensif untuk menjalankan dan memeriksa kode saya.
+
+---
+
+## #1 Panduan dengan Virtual Environment (.venv)
+
+Pendekatan ini saya rekomendasikan untuk menjaga kebersihan lingkungan Python dan memastikan semua dependencies proyek terisolasi dengan baik.
+
+### Prasyarat
+
+* Pastikan Python 3.8 atau versi yang lebih baru sudah terinstal di sistem operasi Anda.
+* Pastikan pip (package installer for Python) sudah terinstal.
+
+### Langkah-langkah Menjalankan Proyek ✨
+
+1.  **Instalasi Dependencies:**
+    Buka terminal atau Command Prompt di direktori utama proyek ini (`submission-pemda`). Buat virtual environment baru (jika belum ada), aktifkan, lalu instal semua library yang dibutuhkan dari `requirements.txt`:
+
+    ```bash
+    # Buat virtual environment (jika belum ada)
+    python3 -m venv .venv
+
+    # Aktifkan virtual environment
+    # Pada Windows Command Prompt:
+    .venv\Scripts\activate
+
+    # Pada Git Bash, macOS, atau Linux:
+    # source .venv/bin/activate
+
+    # Instal semua library dari requirements.txt
+    pip install -r requirements.txt
+    ```
+
+2.  **Menjalankan Skrip ETL Pipeline:**
+    Skrip utama (`main.py`) akan menjalankan seluruh alur ekstraksi, transformasi, dan pemuatan data ke destinasi yang dikonfigurasi.
+
+    ```bash
+    # Pastikan Anda berada di direktori utama proyek (tempat main.py berada)
+    # Pastikan virtual environment aktif
+    python3 main.py
+    ```
+
+3.  **Menjalankan Unit Test:**
+    Untuk memvalidasi bahwa setiap fungsi dan komponen dalam pipeline bekerja dengan benar secara terpisah, jalankan suite unit test menggunakan pytest:
+
+    ```bash
+    # Pastikan Anda berada di direktori utama proyek
+    # Pastikan virtual environment aktif
+    python3 -m pytest tests
+    ```
+    Semua tes seharusnya lulus (berwarna hijau ✅), menunjukkan bahwa kode berfungsi sebagaimana mestinya dalam kondisi terisolasi.
+
+4.  **Menjalankan Test Coverage:**
+    Periksa seberapa banyak baris kode utility (di folder `utils/`) yang tercakup dan dieksekusi oleh unit test Anda untuk menilai kualitas pengujian:
+
+    ```bash
+    # Pastikan Anda berada di direktori utama proyek
+    # Pastikan virtual environment aktif
+    pytest --cov=.
+    ```
+    Ringkasan persentase cakupan kode per file akan ditampilkan di terminal. Untuk laporan yang lebih interaktif dan detail (menunjukkan baris mana yang belum tercakup), jalankan `coverage html` (perintah ini akan membuat folder `htmlcov`, buka `htmlcov/index.html` di browser). 📊
+
+---
+
+## #2 Panduan Tanpa Virtual Environment Khusus
+
+Pendekatan ini bisa digunakan jika Anda lebih memilih untuk tidak menggunakan virtual environment terpisah untuk proyek ini, mengasumsikan Anda menggunakan lingkungan Python yang sudah tersedia di sistem.
+
+### Prasyarat
+
+* Pastikan Python 3.8 atau versi yang lebih baru sudah terinstal di sistem Anda.
+* Pastikan pip (package installer for Python) sudah terinstal.
+
+### Langkah-langkah Menjalankan Proyek ✨
+
+1.  **Instalasi Dependencies:**
+    Buka terminal atau Command Prompt di direktori utama proyek ini (`submission-pemda`). Instal semua library yang dibutuhkan dari `requirements.txt` langsung ke lingkungan Python aktif Anda:
+
+    ```bash
+    # Pastikan Anda berada di direktori utama proyek
+    python -m pip install -r requirements.txt
+    ```
+
+2.  **Menjalankan Skrip ETL Pipeline:**
+    Skrip utama (`main.py`) akan menjalankan seluruh alur ekstraksi, transformasi, dan pemuatan data ke destinasi yang dikonfigurasi.
+
+    ```bash
+    # Pastikan Anda berada di direktori utama proyek (tempat main.py berada)
+    python main.py
+    ```
+
+3.  **Menjalankan Unit Test:**
+    Untuk memvalidasi bahwa setiap fungsi dan komponen dalam pipeline bekerja dengan benar secara terpisah, jalankan suite unit test menggunakan pytest:
+
+    ```bash
+    # Pastikan Anda berada di direktori utama proyek
+    python3 -m pytest tests
+    ```
+    Semua tes seharusnya lulus (berwarna hijau ✅), menunjukkan bahwa kode berfungsi sebagaimana mestinya dalam kondisi terisolasi.
+
+4.  **Menjalankan Test Coverage:**
+    Periksa seberapa banyak baris kode utility (di folder `utils/`) yang tercakup dan dieksekusi oleh unit test Anda untuk menilai kualitas pengujian:
+
+    ```bash
+    # Pastikan Anda berada di direktori utama proyek
+    # Pastikan virtual environment aktif
+    pytest --cov=.
+    ```
+    Ringkasan persentase cakupan kode per file akan ditampilkan di terminal. Untuk laporan yang lebih interaktif dan detail (menunjukkan baris mana yang belum tercakup), jalankan `coverage html` (perintah ini akan membuat folder `htmlcov`, buka `htmlcov/index.html` di browser). 📊
+
+---
+
+### Catatan Hasil Eksekusi yang Sudah Ada 📝
+
+Sebagai informasi tambahan, skrip ETL pipeline (`main.py`) ini telah berhasil saya jalankan secara end-to-end sebelum submission. Proses ekstraksi 1000 data dari website sumber, transformasi sesuai kriteria, dan pemuatan ke destinasi yang dikonfigurasi telah berhasil diselesaikan.
+
+Hasil dari eksekusi `main.py` sudah dimuat ke:
+* Berkas CSV: `products.csv` (terletak di folder utama proyek `submission-pemda`)
+* Google Sheets: Dapat diakses melalui URL yang saya sediakan di bawah.
+* PostgreSQL Database: Sesuai dengan detail koneksi yang dikonfigurasi di file `.env`.
+
+Reviewer dipersilakan untuk langsung memeriksa output yang sudah ada di destinasi-destinasi tersebut jika ingin menghemat waktu dan tidak ingin menjalankan ulang skrip `main.py` dari awal.
+
+### Informasi Tambahan 🔑
+
+* **URL Google Sheets**:
+    https://docs.google.com/spreadsheets/d/19LU4Huh6EskJMvBquIvF8oATcv7ZgtXbnjY1eGFMpyQ/edit?gid=0#gid=0
+
+* **File Kredensial**:
+    * Untuk Google Sheets: File **`genuine-axle-457903-s7-8390e8582491.json`**
+    * Untuk PostgreSQL: File **`.env`**
+
+---
